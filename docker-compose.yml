@@ -1,0 +1,71 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: projetweb-mongoDb
+    volumes:
+      - ./mongodb/data:/data/db
+    ports:
+      - '27018:27017'
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  server:
+    build:
+        context: .
+        dockerfile: ./server/Dockerfile
+        args:
+            - NODE_ENV=development
+    image: projetweb-server
+    container_name: projetweb-server
+    volumes:
+      - ./server:/usr/src/app/server
+      - ./commons/models:/usr/src/app/models
+      - ./commons/config:/usr/src/app/config
+      - ./downloads:/usr/src/app/downloads
+      - ./mongodb:/usr/src/app/mongodb
+      - ./logs:/usr/src/app/logs
+      - node_modules:/usr/src/app/node_modules
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongo
+    env_file:
+      - ./server/.env
+    environment:
+      - NODE_ENV=development
+    networks:
+      - app-network
+    restart: always
+
+  client:
+    image: projetweb-client
+    build:
+        context: .
+        dockerfile: ./src/Dockerfile
+    container_name: projetweb-client
+    volumes:
+        - ./src:/usr/src/app/src
+        - ./public:/usr/src/app/public
+        - node_modules:/usr/src/app/node_modules
+    stdin_open: true
+    environment:
+        - CHOKIDAR_USEPOLLING=true
+    depends_on:
+        - server
+    ports:
+        - '3000:3000'
+    networks:
+        - app-network
+    restart: always
+    command: npm start
+    
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+    node_modules:
+    web-root:
+        driver: local
