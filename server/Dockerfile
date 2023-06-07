@@ -1,4 +1,4 @@
-FROM node:19-alpine
+FROM node:lts-alpine
 
 ARG NODE_ENV
 
@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 ## COPY nodemon.json ./
 COPY package*.json ./
 
-RUN npm i -g npm@9.1.2
+RUN npm i -g npm@latest
 
 RUN npm config set fetch-retry-mintimeout 200000
 RUN npm config set fetch-retry-maxtimeout 12000000
@@ -25,7 +25,7 @@ RUN apk add
 RUN apk add ffmpeg
 
 ## EXIFTOOL
-RUN apk add gcc libc-dev linux-headers postgresql-dev musl-dev zlib zlib-dev libffi-dev
+RUN apk add gcc libc-dev linux-headers musl-dev zlib zlib-dev libffi-dev
 RUN apk add exiftool
 
 EXPOSE 8080
