@@ -21,8 +21,6 @@ services:
     container_name: projetweb-server
     volumes:
       - ./server:/usr/src/app/server
-      - ./commons/models:/usr/src/app/models
-      - ./commons/config:/usr/src/app/config
       - ./downloads:/usr/src/app/downloads
       - ./mongodb:/usr/src/app/mongodb
       - ./logs:/usr/src/app/logs
