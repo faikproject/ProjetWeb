@@ -13,7 +13,7 @@ function Home() {
                 <Header></Header>
                 <main>
                    <div>
-                        <h1>Bienvenue qsfqsf</h1>
+                        <h1>Bienvenue</h1>
                    </div>
                 </main>
             </div>
