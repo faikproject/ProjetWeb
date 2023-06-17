@@ -1,0 +1,66 @@
+@media (min-width: 768px) {
+    .login form {
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        margin:20px auto 0;
+    }
+}
+
+
+.login form { 
+    margin: 0 auto;
+    
+}
+.login h1 {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 31px;
+    margin: 0 0 39px;
+}
+
+.login form .form-group {
+    margin: 0 0 19px
+}
+
+.login form input[type=email],.login form input[type=password] {
+    background: 0 0;
+    color: #f6fafb;
+    font-size: 14px;
+    font-weight: 400;
+    height: 46px;
+    border-radius: 3px;
+    border: 1px solid #2e3136;
+    width: 100%;
+}
+
+.login form button {
+    width: 100%;
+    height: 47px;
+    border-radius: 3px;
+    background-color: #000;
+    color: #f6fafb;
+    font-family: Rubik;
+    font-size: 14px;
+    font-weight: 400;
+    border: none
+}
+
+.login form button:hover {
+    background: #676e79;
+    color: #fff
+}
+
+.form-group {
+    margin: 0 0 19px;
+}
+.link--center {
+    text-align: center;
+    padding-top: 30px;
+}
+.link--center a {
+    color: #000;
+    transition: all .2s ease-in-out;
+}
