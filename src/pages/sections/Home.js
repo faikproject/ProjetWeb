@@ -1,10 +1,18 @@
 import React from 'react'
-
+import "../../styles/Home.css"
 const Home = () => {
   return (
     <section id="homeSection" className="first-section">
-        <h2>Home</h2>
-        <p>something here</p>
+        <div id='home'>
+          <div id='citation'>
+              <p>“I don’t know anything with certainty, but seeing the stars makes me dream.”</p>
+              <h3>Vincent Van Gogh</h3>
+          </div>
+          <div id='animation'>
+              <img src='https://i.pinimg.com/originals/94/81/30/948130e1b398d9b8150275ebe21470cb.gif'>
+              </img>
+          </div>
+        </div>
     </section>
   )
 }

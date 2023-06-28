@@ -1,3 +1,8 @@
+@media (max-width: 768px){
+  .menu-item-close{
+    margin-top: 45%;
+  }
+}
 .menu {
   z-index: 1000;
   height: 20px;
@@ -34,6 +39,7 @@
     margin-left: 2%;
     margin-top: 170px;
   }
+
   .nav-menu{
     background-color: #000;
     width: 100vw;

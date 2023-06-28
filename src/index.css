@@ -1,5 +1,5 @@
 @tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
 body {
@@ -43,4 +43,10 @@ section h2 {
 }
 a {
   text-decoration: none;
+}
+
+/*header */
+header{
+  background: black;
+  color: white;
 }

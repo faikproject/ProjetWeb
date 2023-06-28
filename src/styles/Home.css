@@ -1,0 +1,41 @@
+@media (max-width: 768px){
+    #home
+    {
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     padding-bottom: 0;
+     flex-direction: column;
+     align-items: flex-end;
+     
+    }
+   
+    #animation img{
+     max-width: 100%;
+     height: auto;
+     width: auto\9;
+     
+    }
+ }
+ 
+ 
+ #home {
+     display: flex;
+     justify-content: space-around;
+ }
+ #citation {
+     width: 60%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+ }
+ 
+ #citation p {
+     width: 60%;
+     font-size: 30px;
+ }
+ 
+ #citation h3 {
+    text-align: center;
+    font-size: 30px;
+ }

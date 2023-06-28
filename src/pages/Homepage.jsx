@@ -15,7 +15,7 @@ import Login from "../components/common/Login";
  */
 function Homepage() {
     return (
-        <div className="container">
+        <div className="main_container">
         <Header /> 
          <Navbar />
          <Home />
