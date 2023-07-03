@@ -1,5 +1,4 @@
 import React from 'react'
-import "../../styles/News.css"
 import { Link } from 'react-router-dom'
 //import { BsArrowRight } from "react-icons/bs"
 
@@ -15,11 +14,11 @@ const News = () => {
     <section id="newsSection" className="first-section">
         <div className='newsSection-header'><h2>Events</h2></div>
         
-        <div class="container">
+        <div className="container grid md:grid-cols-9 md:pl-60  ">
       {articles.map((article) => (
-        <div className="article-item" key={article.id}>
-          <h3 class="article-title">{article.title}</h3>
-          <div className="article-discrip">
+        <div className="article-item md:col-span-3" key={article.id}>
+          <h3 class="article-title font-normal leading-tight md:text-24 font-light leading-6">{article.title}</h3>
+          <div className="article-discrip text-white md: my-6">
             {article.description}
           </div>
           <Link to="">-></Link>

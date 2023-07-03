@@ -3,7 +3,7 @@ import '../../styles/Footer.css'
 function Footer() {
   return (
     <footer>
-      <section className='site-footer-main'>
+      <section className='site-footer-main h-60vh'>
       <div className='site-footer-menu-column'>
         <h5 class="site-footer-heading">Sitemap</h5>
         <nav class="site-footer-menu">

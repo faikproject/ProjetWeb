@@ -15,7 +15,7 @@ import Login from "../components/common/Login";
  */
 function Homepage() {
     return (
-        <div className="main_container">
+        <div className="main_container max-w-screen-xl mx-auto">
         <Header /> 
          <Navbar />
          <Home />

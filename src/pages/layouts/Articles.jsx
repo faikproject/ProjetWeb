@@ -1,8 +1,9 @@
 import React from 'react'
-import "../../styles/Articles.css"
 import Navbar from "../../components/common/Navbar"
 import Header from "../../components/common/Header";
 import { Link } from 'react-router-dom'
+
+
 const articles= [
   { id: 1, title: 'Leonardo da Vinci',description:'“Painting is poetry that is seen rather than felt, and poetry is painting that is felt rather than seen.”' },
   { id: 2, title: 'Pablo Picasso' ,description:'“Art washes away from the soul the dust of everyday life.”'},

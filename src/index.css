@@ -50,3 +50,6 @@ header{
   background: black;
   color: white;
 }
+#newsSection{
+  @apply md:items-start p-9;
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import "../../styles/Gallery.css"
 
 const images = [
   { id: 1, src: 'https://images.pexels.com/photos/17367747/pexels-photo-17367747.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', title: 'Image 1',description:'descrip' },
@@ -14,13 +13,13 @@ const images = [
 const Gallery = () => {
   return (
     <section id="gallerySection">
-        <div className="gallery">
+        <div className="gallery grid md:grid-cols-3 grid-gap-10 w-4/5 max-h-full">
       {images.map((image) => (
-        <div className="gallery-item" key={image.id}>
-          <img src={image.src} alt={image.title} className="image" />
-          <div className="image-overlay">
-            <span className="image-title">{image.title}</span>
-            <span className="image-description">{image.description}</span>
+        <div className="gallery-item relative overflow-hidden " key={image.id}>
+          <img src={image.src} alt={image.title} className="image w-full h-auto transform transition duration-300 ease hover:scale-110" />
+          <div className="image-overlay absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition duration-300 ease hover:opacity-100">
+            <span className="image-title text-white text-2xl font-bold text-center">{image.title}</span>
+            <span className="image-description text-white text-base text-center">{image.description}</span>
           </div>
         </div>
       ))}
