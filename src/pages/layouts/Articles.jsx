@@ -7,13 +7,13 @@ function Articles() {
   return (
     <>
     <Navbar />
-    <div class="content">
+    <div className="content">
       
         <div id='blog-item'>
            <div id='blog-title'>
             <h2>Come and have a good time</h2>
             </div> 
-            <div class="blog-content">
+            <div className="blog-content">
                 <p>PLONGEZ AU CŒUR DE L'ART</p>
 
             </div>

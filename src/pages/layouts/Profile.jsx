@@ -7,7 +7,7 @@ function Profile() {
     <>
     
        <Navbar />
-    <div class="profile">
+    <div className="profile">
       
         <div id="profile-body">
             <h2>

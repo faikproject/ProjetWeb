@@ -15,17 +15,17 @@ const News = () => {
     <section id="newsSection" className="first-section">
         <div className='newsSection-header'><h2>Events</h2></div>
         
-        <div class="container">
-      {articles.map((article) => (
-        <div className="article-item" key={article.id}>
-          <h3 class="article-title">{article.title}</h3>
-          <div className="article-discrip">
-            {article.description}
-          </div>
-          <Link to="">-></Link>
+        <div className="container">
+            {articles.map((article) => (
+              <div className="article-item" key={article.id}>
+                <h3 className="article-title">{article.title}</h3>
+                <div className="article-discrip">
+                  {article.description}
+                </div>
+                  <Link to="">-</Link>
+                </div>
+            ))}
         </div>
-      ))}
-</div>
         
     </section>
   )

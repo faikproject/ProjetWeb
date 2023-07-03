@@ -1,6 +1,5 @@
 @media (min-width: 768px){
-    .container {
-        display: grid;
+   /*  .container {
         grid-template-columns: repeat(9, 1fr);
         grid-gap: 40px;
         padding-right: 24px;
@@ -14,12 +13,10 @@
         font-size: 24px;
         font-weight: 300;
         line-height: 1.6;
-    }
-
-    
-    
+    } */
 }
 .container {
+    @apply md:grid md:grid-cols-9 md:gap-10 md:pr-6 md:pl-5;
     display: grid;
     padding-left: calc( ((100% - 11 * 40px) / 12) * 3 + (3 * 40px));
     
@@ -34,13 +31,13 @@
 }
 
 .article-item {
+    @apply flex flex-col md:col-span-3 ;
     display: flex;
     flex-direction: column;
     font-size: 18px;
 }
 h3.article-title {
-    font-weight: 400;
-    line-height: 1.34;
+    @apply text-xl font-normal md:font-light;
 }
 .article-item a {
     color: #fff;

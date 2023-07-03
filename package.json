@@ -4,28 +4,38 @@
   "private": true,
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@hookform/resolvers": "^3.1.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
-    "body-parser": "^1.20.2",
+    "bcrypt": "^5.1.0",
+    "check-password-strength": "^2.0.7",
+    "crypto": "^1.0.1",
+    "crypto-random-string": "^5.0.0",
     "express": "^4.18.2",
-    "express-sharp": "^3.1.1",
+    "express-sharp": "^4.2.41",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "mongoose": "^7.2.2",
+    "mongoose-unique-validator": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.10.1",
+    "react-hook-form": "^7.45.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.12.0",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^5.0.1",
     "socket.io": "^4.6.2",
+    "socket.io-client": "^4.7.1",
     "uniqid": "^5.4.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "react-build": "env-cmd -f ./.env react-scripts build",
     "start-prod": "env-cmd -f ./.env react-scripts build && node ./front.js",
-    "start": "PORT=3000 GENERATE_SOURCEMAP=false react-scripts start",
+    "start": "react-scripts start",
     "build": "env-cmd -f ./.env react-scripts build && node ./front.js",
     "test": "jest",
     "eject": "react-scripts eject"
@@ -49,7 +59,7 @@
     ]
   },
   "devDependencies": {
-    "nodemon": "^1.14.9",
+    "nodemon": "^2.0.22",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2"
   }

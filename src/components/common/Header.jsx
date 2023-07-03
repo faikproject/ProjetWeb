@@ -1,31 +1,41 @@
-import React from 'react';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import styles from '../../styles/Header.module.css'
 
 const Header = () => {
-   
-  const navLinks = ["About Me", "Login"];
-  const handleClickLogo = () => {
-    document.getElementById("homeSection").scrollIntoView({ behavior: "smooth" })
-  }
+    //HOOKS
+    const navigate = useNavigate();
 
-  const renderNavLink = (content) => {
-    
+    const handleClickLogo = () => {
+      document.getElementById("homeSection").scrollIntoView({ behavior: "smooth" })
+    }
 
-    return (
-      <ul key={content}>
-        <li>
-          <button>{content}</button>
-        </li>
-      </ul>
-    )
-  }
+    const handleGoToLogin = useCallback(() => {
+         navigate('/login');
+    }, [navigate]);
+
+    const handleGoToProfil = useCallback(() => {
+      navigate('/profile');
+ }, [navigate]);
+
     return (
       <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.navContainer}>
             <h1 onClick={handleClickLogo}>MT</h1>
             <nav>
-            {navLinks.map(nav => renderNavLink(nav))}
+              <ul onClick={handleGoToProfil}>
+                <li>
+                  <button>About Me</button>
+                </li>
+              </ul>
+              <ul onClick={handleGoToLogin}>
+                <li>
+                  <button>Login</button>
+                </li>
+              </ul>
+            {/* {navLinks.map(nav => renderNavLink(nav))} */}
           </nav>
           </div>
         </div>

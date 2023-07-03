@@ -5,7 +5,6 @@ import Gallery from "./sections/Gallery";
 import News from "./sections/News";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
-import Login from "../components/common/Login";
 //CONTAINERS
 
 //LAYOUT

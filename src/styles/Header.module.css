@@ -1,12 +1,14 @@
+.header {
+  @apply px-2;
+}
+
 .main_container {
-  max-width: 1200px;
+  max-width: 100px;
   margin: 0 auto;
 }
 
 .navContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @apply flex items-center justify-between;
 }
 
 .navContainer h1 {
