@@ -11,7 +11,7 @@ import Signup from './components/common/Signup';
 import Login from './components/common/Login';
 import Profile from './pages/layouts/Profile';
 import Articles from './pages/layouts/Articles';
-
+import Gallery_page from './pages/layouts/Gallery_page';
 const queryClient = new QueryClient({
   defaultOptions: {
       queries: {
@@ -32,6 +32,7 @@ root.render(
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/news" element={<Articles />} />
+                <Route path="/gallery" element={<Gallery_page />} />
             </Routes>
         </BrowserRouter>
     </QueryClientProvider>

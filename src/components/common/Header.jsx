@@ -23,7 +23,7 @@ const Header = () => {
       <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.navContainer}>
-            <h1 onClick={handleClickLogo}>MT</h1>
+            <h1 onClick={handleClickLogo}>Van Gogh</h1>
             <nav>
             {navLinks.map(nav => renderNavLink(nav))}
           </nav>
