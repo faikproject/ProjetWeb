@@ -1,6 +1,5 @@
 # Auteurs de ce projet
-FAIK MEHMETI
-YU SONG
+FAIK MEHMETI et YU SONG
 
 # Les prérequis
 
