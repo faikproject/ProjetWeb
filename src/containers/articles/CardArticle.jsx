@@ -54,7 +54,7 @@ function CardArticle({ article, refetch }) {
             </Modal>
             <div className="card card-article w-full p-2 bg-white flex flex-row justify-between items-center sm:gap-4 h-auto">
                 <Link to={`/news/${item._id}`} className="flex ml-2">
-                    <div className="card-header text-main text-base mb-4 font-bold text-purpleSkills">
+                    <div className="card-header text-main text-base mb-4 font-bold text-black">
                         <span>{item.name}</span>
                         <span>{item.description}</span>
                     </div>

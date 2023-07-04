@@ -126,7 +126,7 @@ function Signup() {
                     <div className={`${strongPwd?.class} h-[2px] block absolute bottom-0`}></div>
                     {errors && errors['password'] && <span className={`w-full mt-0 text-sm text-danger-400`}>{errors['password'].message}</span>}
                     {strongPwd && (
-                    <div className="text-xs text-graySkills flex flex-col mt-4 mb-6">
+                    <div className="text-xs text-black flex flex-col mt-4 mb-6">
                         <span className={`${strongPwd.length >= 12 ? 'text-success-500' : ''}`}>12 caractères minimum</span>
                         <span className={`${_.includes(strongPwd.contains, 'uppercase') ? 'text-success-500' : ''}`}>1 majuscule</span>
                         <span className={`${_.includes(strongPwd.contains, 'number') ? 'text-success-500' : ''}`}>1 chiffre</span>

@@ -56,7 +56,7 @@ function Modal(props) {
                         {props.onClose && !props.onClose.noButton && (
                             <button
                                 label={props.onClose.label ? props.onClose.label : 'Annuler'}
-                                className="text-graySkills bg-white m-0 mr-2 button-border-gray rounded-full"
+                                className="text-black bg-white m-0 mr-2 button-border-gray rounded-full"
                                 onClick={props.onClose.onClick}
                             />
                         )}
