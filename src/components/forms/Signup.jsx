@@ -3,7 +3,7 @@ import axios from "axios"
 import {useNavigate, Link} from "react-router-dom"
 
 //STYLES
-import './forms.css';
+import '../../styles/Login.css';
 //LIBS
 import _ from 'lodash';
 import { useForm } from 'react-hook-form';
@@ -21,8 +21,7 @@ import { AuthContext } from '../../context/authContext';
 
 function Signup() {
     //CONTEXTS
-     //CONTEXTS
-     const [authState] = useContext(AuthContext);
+    const [authState] = useContext(AuthContext);
 
     const {
         isSubmitted,
@@ -45,8 +44,6 @@ function Signup() {
     } = useForm({
         resolver: yupResolver(schema),
     });
-
-    const onSubmit = data => console.log(data);
 
     const [strongPwd, setStrongPwd] = useState(null);
 
@@ -102,7 +99,7 @@ function Signup() {
     }, [watch('password')]);
 
     return (
-        <div className="form" autoComplete="off">
+        <div className="login" autoComplete="off">
             {isSignupSubmitted && authState.isLogged && <Alert type="success" message="Vous avez créé un compte !" />}
             {hasError && isSignupSubmitted && !authState.isLogged && <Alert type="danger" message="Un compte existe déjà avec cette adresse email" />} 
             
@@ -110,11 +107,11 @@ function Signup() {
             <form onSubmit={handleSubmit(onSubmitSignUp)}>
                 <h1>Create an Account</h1> 
                 <div className="relative form-group">
-                    <input className="" placeholder="Email" type="email" name="email" {...register('email')} />
+                    <input className="input" placeholder="Email" type="email" name="email" {...register('email')} />
                     {errors && errors['email'] && <span className={`mt-0 text-sm text-danger-400`}>{errors['email'].message}</span>}
                 </div>
                 <div className="relative form-group">
-                    <input className="" placeholder="Pseudo" type="text" name="pseudo" {...register('pseudo')} />
+                    <input className="input" placeholder="Pseudo" type="text" name="pseudo" {...register('pseudo')} />
                     {errors && errors['pseudo'] && <span className={`mt-0 text-sm text-danger-400`}>{errors['pseudo'].message}</span>}
                 </div>
                 <div className="relative form-group">
@@ -130,7 +127,7 @@ function Signup() {
                     {errors && errors['password'] && <span className={`w-full mt-0 text-sm text-danger-400`}>{errors['password'].message}</span>}
                     {strongPwd && (
                     <div className="text-xs text-graySkills flex flex-col mt-4 mb-6">
-                        <span className={`${strongPwd.length >= 10 ? 'text-success-500' : ''}`}>10 caractères minimum</span>
+                        <span className={`${strongPwd.length >= 12 ? 'text-success-500' : ''}`}>12 caractères minimum</span>
                         <span className={`${_.includes(strongPwd.contains, 'uppercase') ? 'text-success-500' : ''}`}>1 majuscule</span>
                         <span className={`${_.includes(strongPwd.contains, 'number') ? 'text-success-500' : ''}`}>1 chiffre</span>
                          <span className={`${_.includes(strongPwd.contains, 'symbol') ? 'text-success-500' : ''}`}>1 caractère spécial</span>
@@ -140,7 +137,7 @@ function Signup() {
                 
                 <div className="relative form-group">
                     <input
-                        className="input_floating peer"
+                        className="input"
                         placeholder="Retype Password"
                         type="password"
                         name="confirm"
@@ -154,10 +151,10 @@ function Signup() {
                 </div>
                 <div className="form-group">
                     <button type="submit" id="submit" className="">Register</button>
-                </div>   
+                </div>  
                 <div className="form-group link--center">
                     <Link to="/login">Already a user? Sign in</Link>
-                </div>
+                </div> 
             </form>
         </div>
     )

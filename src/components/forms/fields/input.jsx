@@ -19,11 +19,7 @@ function Input(props) {
                 )}
                 <div className="relative">
                     <div
-                        className={`${
-                            props.type === 'checkbox'
-                                ? 'flex justify-start'
-                                : `${props.name === 'search' ? 'border rounded-full border-gray-300' : ''} ${props?.searchMain ? 'bg-white p-2' : ''}`
-                        }`}
+                        className={``}
                     >
                         <input
                             ref={(e) => {
@@ -33,23 +29,15 @@ function Input(props) {
                             defaultValue={props.defaultValue}
                             placeholder={props.placeholder}
                             {...register}
-                            className={`input p-2 input_${props.inputForm} ${props.inputForm === "ai" ? 'border-white text-white' :'focus:border-blueMain'} placeholder-graySkills
-                                        placeholder:text-sm sm:placeholder:text-base ${props.errors[props.name] && 'input_error'} ${props.className}`}
+                            className={`input p-2 input_${props.inputForm} placeholder:text-sm sm:placeholder:text-base ${props.errors[props.name] && 'input_error'} ${props.className}`}
                             type={props.type ? props.type : 'text'}
                             id={`input_${props.name}`}
                             style={{background: 'none'}}
-                                // onChange={props.onChange}
                             autoFocus={props.autoFocus}
                             maxLength={props.maxLength}
                             min={props.min || 0}
                             max={props.max}
                         />
-                         
-                        {props.type === 'checkbox' && (
-                            <label htmlFor={`input_${props.name}`} className={`${props.className} input_label input_label_checkbox`}>
-                                {props.label}
-                            </label>
-                        )}
                     </div>
                 </div>
                 {props.errors && props.errors[props.name] && (

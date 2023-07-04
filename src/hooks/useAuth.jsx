@@ -23,10 +23,8 @@ function UseAuth() {
     const location = useLocation();
 
     useEffect(() => {
-        // console.log('init auth');
         const currentTime = moment();
         const timeSession = moment(localStorage.getItem('timeSession'));
-
         // console.log(currentTime.format('YYYY-MM-DD HH:mm'), timeSession.format('YYYY-MM-DD HH:mm'));
         if (localStorage.getItem('user') && (currentTime.isAfter(timeSession, 'minute') || !localStorage.getItem('timeSession'))) {
             logout();
@@ -55,7 +53,6 @@ function UseAuth() {
     };
 
     const setConnexion = (response) => {
-        console.log(response)
         if (response.data.error) {
             setIsSubmitted(true);
         } else {
@@ -63,10 +60,10 @@ function UseAuth() {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 localStorage.setItem('timeSession', moment().add(15, 'days'));
             }
-          /*   toast('Vous êtes connecté(e)', { type: 'success' }); */
             setIsSubmitted(true);
             setHasError(false);
             refresh();
+            navigate('/')
         }
     };
 
@@ -80,16 +77,12 @@ function UseAuth() {
             });
             if (response.status === 201) {
                 setIsSignupSubmitted(true);
-                /* toast('Vous avez créé un compte SkillsMarket !', {
-                    type: 'success',
-                }); */
                 setTimeout(() => {
                     login(inputsConnexion);
                 }, 1000);
                 return true;
             }
         } catch (err) {
-           /*  toast('Un compte existe déjà avec cette adresse email', { type: 'error' }); */
             setHasError(true);
             setIsSignupSubmitted(true);
         }
@@ -107,9 +100,7 @@ function UseAuth() {
 
         socket.send('userLogout', { id: authState?.me?.id });
         socket.off('userConnect');
-        // socket.disconnect();
-        // socket.connect();
-        /* toast('Vous êtes déconnecté(e)', { type: 'success' }); */
+
         refresh();
         reload();
     };

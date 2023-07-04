@@ -4,7 +4,6 @@ const User = db.users;
 //LIBS
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
 
 //API
 exports.signup = (req, res) => {
@@ -48,7 +47,7 @@ exports.login = (req, res) => {
         res.status(400).send({ message: 'Content can not be empty!' });
         return;
     }
-    console.log("test login")
+
     User.findOne({ 'auth.email': req.body.email, 'auth.enabled': { $ne: false } })
         .then((user) => {
             console.log(user)
@@ -58,15 +57,13 @@ exports.login = (req, res) => {
             bcrypt
                 .compare(req.body.password, user.auth.password)
                 .then((valid) => {
-                    console.log("validation")
-                    console.log(valid)
                     if (!valid) {
                         return res.status(401).json({ error: 'Mot de passe incorrect !' });
                     }
 
                     res.status(200).json({
                         userId: user._id,
-                        token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET_A_MODIFIER_EN_PROD", { expiresIn: '15d' })
+                        token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", { expiresIn: '15d' })
                     });
                 })
                 .catch((error) => {
@@ -83,11 +80,11 @@ exports.login = (req, res) => {
 exports.findMe = (req, res) => {
     const id = req.auth.userId;
 
+    console.log(req.auth.userId)
     User.findById(id)
-        .select({ 'auth.password': 0, search: 0, 'profile.tags.search': 0 })
-        .sort({ 'profile.experiences.year': -1 })
-        // .populate([{ path: "counters_medias", select: "type user to", match: { type: "like_portfolio" } }])
+        .select({ 'auth.password': 0, })
         .then((data) => {
+            console.log(data)
             if (!data)
                 res.status(404).send({
                     message: 'Not found with id ' + id,
@@ -97,6 +94,26 @@ exports.findMe = (req, res) => {
         .catch((err) => {
             res.status(500).send({
                 message: 'Error retrieving with id=' + id,
+            });
+        });
+};
+
+exports.delete = (req, res) => {
+    console.log("delete")
+    const id = req.auth.userId;
+    User.findByIdAndRemove(id, { useFindAndModify: false })
+        .then((data) => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot delete user with id=${id}. Maybe user was not found!`,
+                });
+            } else {
+                res.send({ message: 'User was deleted successfully.' });
+            }
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: 'Error deleting user with id=' + id,
             });
         });
 };
@@ -139,19 +156,6 @@ exports.update = (req, res) => {
 
         toUpdate = { ...toUpdate, 'profile.avatar.url': avatarUrl };
     }
-    if (req.files.medias && req.files.medias.length > 0) {
-        const urls = [];
-        req.files.medias.forEach((file) => {
-            const type = file.mimetype?.includes('video') ? 'videos' : 'images';
-            urls.push({
-                url: `/downloads/${type}/${id}/${file.filename}`,
-                name: file.filename,
-                type: file.mimetype,
-                weight: file.size,
-            });
-        });
-        toUpdate = { ...toUpdate, $push: { 'profile.medias': urls } };
-    }
 
     if (body.email) {
         toUpdate = { ...toUpdate, 'auth.email': body.email };
@@ -168,23 +172,11 @@ exports.update = (req, res) => {
     if (body.phone) {
         toUpdate = { ...toUpdate, 'profile.phone': body.phone };
     }
-    if (body.video) {
-        toUpdate = { ...toUpdate, 'profile.video': body.video };
-    }
-    if (body.linkWebsite) {
-        toUpdate = { ...toUpdate, 'profile.linkWebsite': body.linkWebsite };
-    }
-    if (body.linkYoutube) {
-        toUpdate = { ...toUpdate, 'profile.linkYoutube': body.linkYoutube };
-    }
-    if (body.linkTiktok) {
-        toUpdate = { ...toUpdate, 'profile.linkTiktok': body.linkTiktok };
+    if (body.linkFacebook) {
+        toUpdate = { ...toUpdate, 'profile.linkFacebook': body.linkFacebook };
     }
     if (body.linkInstagram) {
         toUpdate = { ...toUpdate, 'profile.linkInstagram': body.linkInstagram };
-    }
-    if (body.linkLinkedin) {
-        toUpdate = { ...toUpdate, 'profile.linkLinkedin': body.linkLinkedin };
     }
     if (body.linkTwitter) {
         toUpdate = { ...toUpdate, 'profile.linkTwitter': body.linkTwitter };
@@ -211,35 +203,6 @@ exports.update = (req, res) => {
             console.log(err);
             res.status(500).send({
                 message: 'Error updating user with id=' + id,
-            });
-        });
-};
-
-exports.deleteMedia = (req, res) => {
-    const id = req.params.id;
-
-    User.findOne({ _id: req.auth.userId, 'profile.medias._id': id })
-        .then((data) => {
-            if (!data) {
-                res.status(404).send({
-                    message: `Cannot find Media with id=${id}. Maybe Media was not found!`,
-                });
-            } else if (data._id.toString() !== req.auth.userId) {
-                res.status(401).send({
-                    message: 'Unauthorized',
-                });
-            } else {
-                data.updateOne({ $pull: { 'profile.medias': { _id: id } } }).then(() => {
-                    return res.status(200).send({
-                        message: `delete Media with id=${id}.`,
-                        data: data,
-                    });
-                });
-            }
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message: 'Error retrieving Media with id=' + id,
             });
         });
 };

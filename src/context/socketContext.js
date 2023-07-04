@@ -11,26 +11,9 @@ const SocketProvider = (props) => {
     const IO = useRef(null);
 
     useEffect(() => {
-        //get user location
-
         if (!isConnect()) {
 
             connect();
-            // IO.current = socketIOClient(ENDPOINT);
-
-            // IO.current.on('connect', () => {
-            //     const engine = IO.current.io.engine;
-            //     console.log(engine.transport.name);
-
-            //     engine.once("upgrade", () => {
-            //         // called when the transport is upgraded (i.e. from HTTP long-polling to WebSocket)
-            //         console.log("upgrade", engine.transport.name); // in most cases, prints "websocket"
-            //     });
-            // });
-
-            // IO.current.on('disconnect', (reason) => {
-            //     console.log(reason);
-            // });
         }
 
         return () => IO.current.disconnect();
@@ -43,7 +26,6 @@ const SocketProvider = (props) => {
 
     function on(key, cb) {
         if (!isConnect()) connect();
-        // console.log(key, IO.current);
 
         IO.current.on(key, (data, msg) => {
             return cb(data, msg, IO.current);

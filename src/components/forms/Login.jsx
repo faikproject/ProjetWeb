@@ -1,20 +1,27 @@
-import { useCallback, useContext, useEffect, useState } from "react"
-import {useNavigate, Link} from "react-router-dom"
+import {  useState } from "react"
+import { Link} from "react-router-dom"
 
 //STYLES
-import './forms.css';
-
-//CONTEXTS
-
+import '../../styles/Login.css'
+//HOOKS
+import UseAuth from "../../hooks/useAuth";
 
 function Login() {
 
+    const {
+        login,
+    } = UseAuth();
+
     const [inputsConnexion, setInputsConnexion] = useState({
         email: '',
-        pseudo: '',
         password: '',
-        confirm: '',
     });
+
+    function onSubmit(e) {
+        e?.preventDefault();
+        console.log(inputsConnexion)
+        login(inputsConnexion)
+    }
 
     function handleChangeFormConnexion(e) {
         setInputsConnexion({
@@ -24,12 +31,12 @@ function Login() {
     }
 
     return (
-        <div className="form">
-            <form>
+        <div className="login">
+            <form onSubmit={onSubmit} className="">
                 <h1>Sign in</h1> 
                 <div className="form-group">
                     <input
-                        type="text"
+                        type="email"
                         name="email"
                         value={inputsConnexion.email}
                         onChange={handleChangeFormConnexion}
@@ -48,12 +55,12 @@ function Login() {
                     />
                 </div> 
                 <div className="form-group">
-                    <button id="submit" className="ng-binding">Login</button>
-                </div>   
+                    <button type="submit" id="submit" className="ng-binding">Login</button>
+                </div> 
+                <div className="form-group link--center">
+                    <Link to="/signup">New user? Create an Account</Link>
+                </div>  
             </form>
-            <div className="form-group link--center">
-                <Link to="/signup">New user? Create an Account</Link>
-            </div>
         </div>
         
     )

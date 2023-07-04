@@ -1,11 +1,9 @@
-import React, { useState, createContext, useCallback, useContext } from 'react';
+import React, { useState, useEffect, createContext, useCallback, useContext } from 'react';
 //API
 import { useQuery } from 'react-query';
 import { getMe } from '../api/users';
 //LIBS
 import moment from 'moment';
-//HOOKS
-import { useEffect } from 'react';
 //CONTEXTS
 import { SocketContext } from '../context/socketContext';
 
@@ -27,17 +25,7 @@ const AuthProvider = (props) => {
     const me = useQuery('me', getMe, {
         enabled: window.location.pathname.includes('dashboard/profil') ? false : isLogged(),
         staleTime: 1_000,
-        // enabled: isLogged() === true,
     });
-
-    // useCallback(() => {
-    //     console.log('callback');
-    //     socket.on("userConnect", () => {
-    //         me.refetch();
-    //         console.log('me refetch');
-    //     });
-    //     //eslint-disable-next-line
-    // }, []);
 
     const setMe = useCallback(() => {
         if (me.isSuccess && me.data) {

@@ -1,17 +1,17 @@
 
 @media screen and (max-width: 767px){
-.footer__left-menu-mob {
-    width: 90%;
-    text-align: left;
-    align-items: center;
-}
-.content-menu-middle {
-    width: 90%;
-    justify-content: flex-start;
-    align-items: flex-end;
-    margin-top: 50px;
-    display: block;
-}
+  .footer__left-menu-mob {
+      width: 90%;
+      text-align: left;
+      align-items: center;
+  }
+  .content-menu-middle {
+      width: 90%;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin-top: 50px;
+      display: block;
+  }
 }
 
 

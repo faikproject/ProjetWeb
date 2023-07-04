@@ -3,7 +3,8 @@ const jwt = require('jsonwebtoken');
 module.exports = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
-        const decoded = jwt.verify(token, 'RANDOM_TOKEN_SECRET_A_MODIFIER_EN_PROD');
+        //UN TOKEN DEVRA ETRE GENERE ET ENREGISTRER DANS UN VARIABLE D ENVIRONNEMENT
+        const decoded = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
         const userId = decoded.userId;
         req.auth = { userId };
 

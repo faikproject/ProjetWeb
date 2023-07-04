@@ -1,0 +1,19 @@
+
+.navContainer {
+  @apply flex items-center justify-between;
+}
+
+.navContainer h1 {
+  @apply text-2xl cursor-pointer;
+}
+
+.navContainer nav {
+  @apply flex gap-10;
+  
+}
+
+.navContainer button {
+  @apply relative text-base cursor-pointer hover:underline text-gray-300 border-none;
+  
+}
+

@@ -3,7 +3,7 @@ import '../../styles/Footer.css'
 function Footer() {
   return (
     <footer>
-      <section className='site-footer-main'>
+      <section className='site-footer-main h-60vh'>
       <div className='site-footer-menu-column'>
         <h5 className="site-footer-heading">Sitemap</h5>
         <nav className="site-footer-menu">
@@ -27,7 +27,7 @@ function Footer() {
               <input name="input_newsletter" id="input_newsletter" type="email" value=""  placeholder="Enter your email address" aria-required="true" aria-invalid="false"></input>
             </div>
             <div>
-              <input type="submit" id="newsletter_submit_button" class="newsletter_button" value="Subscribe"></input>
+              <input type="submit" id="newsletter_submit_button" className="newsletter_button" value="Subscribe"></input>
             </div>
           </form>
       </div>

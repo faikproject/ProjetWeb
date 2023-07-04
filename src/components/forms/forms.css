@@ -1,72 +1,50 @@
-/* @media (min-width: 768px) {
-    .form form {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        margin:20px auto 0;
-    }
-} */
-
-
-.form { 
-    @apply w-72 absolute top-[50%] left-[50%];
-    transform: translate(-50%,-50%);
-    margin: 0 auto;
-    
-}
-.form h1 {
-    font-size: 22px;
-    font-weight: 400;
-    text-align: center;
-    line-height: 31px;
-    margin: 0 0 39px;
+.form {
+    @apply w-full flex flex-wrap pb-4;
 }
 
-.form form .form-group {
-    margin: 0 0 19px
+.section_title {
+    @apply text-lg font-bold mt-4 text-black p-1 px-2 mb-2 rounded w-full;
 }
 
-.form form input {
-    background: 0 0;
-    font-size: 14px;
-    font-weight: 400;
-    height: 46px;
-    border-radius: 3px;
-    border: 1px solid #2e3136;
-    width: 100%;
-}
-
-.form form button {
-    width: 100%;
-    height: 47px;
-    border-radius: 3px;
-    background-color: #000;
-    color: #f6fafb;
-    font-family: Rubik;
-    font-size: 14px;
-    font-weight: 400;
-    border: none
-}
-
-.form form button:hover {
-    background: #676e79;
-    color: #fff
-}
-
-.form-group {
-    margin: 0 0 19px;
-}
-.link--center {
-    text-align: center;
-    padding-top: 30px;
-}
-.link--center a {
-    color: #000;
-    transition: all .2s ease-in-out;
+.group {
+    @apply h-auto;
+    min-height: 70px;
 }
 
 .input {
-    @apply border-b  font-medium h-11 mb-0;
+    @apply border-b border-gray-600 font-medium text-black h-11 mb-0;
     @apply w-full flex-initial mt-0 text-base;
+}
+
+.input:focus,
+.input:focus:not(.input_error),
+.input[type='text']:focus {
+    /* @apply border-blueMain; */
+    outline: none;
+}
+.input_label {
+    @apply text-gray-600;
+    @apply font-medium;
+    @apply mb-0 block;
+}
+.input_error {
+    @apply text-danger-400 border-danger-500;
+}
+textarea[autoresize] {
+    display: block;
+    height: 100px;
+    overflow: auto;
+    resize: none;
+    outline: none;
+}
+/* POPHOVER */
+.popHover {
+    @apply relative;
+}
+.popHover-content {
+    @apply z-10 opacity-0 absolute top-2 left-9 h-6 bg-white px-2 py-1 text-xs rounded shadow-lg w-auto whitespace-nowrap;
+}
+.popHover-content.active {
+    @apply opacity-95 sm:bottom-11 md:left-11;
+    transition: opacity, left 0.2s;
 }
