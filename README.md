@@ -1,3 +1,7 @@
+# Auteurs de ce projet
+FAIK MEHMETI
+YU SONG
+
 # Les prérequis
 
 Installer docker, make, nodejs sur la machine
