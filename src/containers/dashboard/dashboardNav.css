@@ -1,0 +1,23 @@
+.dashboardNav {
+    @apply text-blue-800;
+}
+
+.dashboardNav .dashboardNav_head {
+    @apply text-black font-bold my-2;
+}
+
+.dashboardNav .dashboardNav_link {
+    @apply text-gray-500 p-0;
+}
+.dashboardNav .dashboardNav_link:not(.active):hover {
+    @apply font-bold text-base cursor-pointer text-black bg-white rounded-3xl no-underline px-3;
+}
+.dashboardNav .dashboardNav_link.active {
+    @apply font-bold text-base bg-white text-black rounded-3xl no-underline px-3;
+}
+.dashboardNav .dashboardNav_link a {
+    @apply w-full h-full inline-block p-1;
+}
+.dashboardNav .dashboardNav_link.active a:hover {
+    @apply cursor-default;
+}

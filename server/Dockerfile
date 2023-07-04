@@ -19,15 +19,6 @@ RUN npm install --no-audit
 
 RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
 
-## ffmpeg
-RUN apk update
-RUN apk add
-RUN apk add ffmpeg
-
-## EXIFTOOL
-RUN apk add gcc libc-dev linux-headers musl-dev zlib zlib-dev libffi-dev
-RUN apk add exiftool
-
 EXPOSE 8080
 
 CMD ["nodemon","-L","server/server.js"];

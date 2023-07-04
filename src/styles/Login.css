@@ -1,0 +1,31 @@
+.login form { 
+    @apply w-full px-2 sm:px-0 sm:w-72 mx-auto lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:mt-5;   
+}
+.login h1 {
+    @apply text-center text-base font-normal leading-8 my-0 mb-10;
+}
+
+.login form .form-group {
+    @apply my-0 mb-5;
+}
+
+.login form input {
+   @apply text-black text-sm font-normal h-12 rounded-sm border border-black w-full;
+   background: 0 0;
+}
+
+.login form button {
+    @apply w-full h-12 rounded-sm bg-black text-white text-sm font-normal border-0 hover:text-white hover:bg-[#676e79];
+    font-family: "Rubik";
+}
+
+.form-group {
+    @apply my-0 mb-5;
+}
+.link--center {
+    @apply text-center pt-8;
+}
+.link--center a {
+    color: #000;
+    transition: all .2s ease-in-out;
+}

@@ -1,0 +1,19 @@
+
+ #home {
+    @apply flex  mx-auto mb-0 flex-col items-end md:flex-row md:items-start ;
+ }
+ #animation img{
+    @apply max-w-full h-auto w-auto;
+ 
+}
+ #citation {
+    @apply w-60 flex flex-col justify-around m-4 md:w-96;
+ }
+ 
+ #citation p {
+    @apply w-60 text-3xl md:w-80;
+ }
+ 
+ #citation h3 {
+    @apply text-center text-3xl;
+ }

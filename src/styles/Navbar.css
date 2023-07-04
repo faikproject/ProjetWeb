@@ -1,0 +1,44 @@
+@media (max-width: 768px){
+  .menu-item-close{
+    margin-top: 45%;
+  }
+}
+.menu {
+  @apply z-50 h-20 text-center flex flex-col justify-start items-stretch fixed top-1/2 ;
+  
+  
+}
+
+.text-span {
+    @apply text-gray-600 tracking-wider text-sm font-light;
+    
+  }
+  .menu-item-open {
+    @apply text-gray-600 tracking-wider text-sm no-underline transform -rotate-90;
+    
+  }
+  .menu-item-close{
+    @apply transform -rotate-90 h-5 ml-2 mt-32;
+    
+  }
+
+  .nav-menu{
+     background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: -130%;
+    transition: 850ms;
+    padding-top: 15%;
+  }
+  .nav-menu.active {
+    left: 0;
+    transition: 350ms;
+  }
+  .nav-text a {
+    @apply text-white text-3xl font-light flex items-center px-16 py-0 mx-auto tracking-wider my-6;
+    
+  }

@@ -1,23 +1,19 @@
-//COMPONENTS
-
-import Header from "../components/common/Header";
-
 //CONTAINERS
-
-//LAYOUT
+import ContainerLayout from "./layouts/Container";
+//SECTIONS
+import HomeTest from "./sections/HomeTest";
+import Gallery from "./sections/Gallery";
+import News from "./sections/News";
 
 function Home() {
     return (
-        <div className="container w-full">
-            <div className="w-full">
-                <Header></Header>
-                <main>
-                   <div>
-                        <h1>Bienvenue</h1>
-                   </div>
-                </main>
+        <ContainerLayout>
+            <div className="main_container">
+                <HomeTest />
+                <Gallery />
+                <News />
             </div>
-        </div>
+        </ContainerLayout>
     );
 }
 

@@ -20,14 +20,12 @@ var corsOptions = {
 
 const server = require('http').createServer(app);
 
-const io = require('socket.io')(server, {
-    cors: corsOptions,
-    pingInterval: 5000,
-    pingTimeout: 10000,
-});
-
 app.set('trust proxy', 2);
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+    express.json()(req, res, next);
+});
 
 // db
 const db = require('./models');
@@ -44,9 +42,7 @@ db.mongoose
         process.exit();
     });
 
-// simple route
 app.get('/', (req, res) => {
-    // gamificationEmitter.emit('refresh', { userId: "61f79c6e1d67ecaa430002c6" });
     res.json({ message: 'Bienvenue sur le site !' });
 });
 
@@ -66,14 +62,18 @@ app.use(
         imageAdapter: new FsAdapter(path.join(__dirname, '../downloads/medias')),
     })
 );
-app.use('/downloads/videos', express.static(path.join(__dirname, '../downloads/videos')));
 
-//ROUTES
-//require('../../..')(app)
+require('./routes/articles')(app);
+require('./routes/users')(app);
 
 //SOCKET
-io.on('connection', (socket) => {
-    require('./socket')(socket, io);
+const io = require('socket.io')(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        pingInterval: 5000,
+        pingTimeout: 10000,
+        credentials: true
+    }
 });
 
 //LISTEN

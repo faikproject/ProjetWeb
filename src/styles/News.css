@@ -1,0 +1,32 @@
+.container {
+    @apply md:grid md:grid-cols-9 md:gap-10 md:pr-6 md:pl-5;
+    display: grid;
+    padding-left: calc( ((100% - 11 * 40px) / 12) * 3 + (3 * 40px));
+    
+}
+
+.newsSection-header{
+    padding-bottom: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 80px;
+}
+
+.article-item {
+    @apply flex flex-col md:col-span-3 ;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+h3.article-title {
+    @apply text-xl font-normal md:font-light;
+}
+.article-item a {
+    color: #fff;
+    margin: 23px 0;
+}
+.article-item svg {
+    width: 24px;
+    height: 24px;
+}

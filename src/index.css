@@ -1,5 +1,5 @@
 @tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
 body {
@@ -14,4 +14,42 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/*modification */
+ul {
+  list-style: none;
+}
+
+
+/*sections*/
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.first-section {
+  background: #000;
+  color: #fff;
+}
+
+section h2 {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+a {
+  text-decoration: none;
+}
+
+/*header */
+header{
+  background: black;
+  color: white;
+}
+#newsSection{
+  @apply md:items-start p-9;
 }

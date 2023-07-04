@@ -8,7 +8,6 @@ logs-server:
 	docker-compose logs -f --tail="50" server
 logs-client:
 	docker-compose logs -f --tail="50" client
-
 restart:
 	docker-compose restart mongo
 	docker-compose restart server

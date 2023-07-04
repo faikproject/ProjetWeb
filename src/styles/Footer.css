@@ -1,0 +1,61 @@
+@media (min-width: 768px){
+    .site-footer-main {
+        margin-bottom: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 40vh;
+    }
+    .site-footer-newsletter, .site-footer-menu-column{
+        padding-top: 4%;
+    }
+}
+section.site-footer-main {
+    height: 60vh;
+}
+
+
+.site-footer-menu a{
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.5666;
+    color: #000;
+    
+}
+
+.site-footer-newsletter, .site-footer-menu-column{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#newsletter_submit_button {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    appearance: none;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+input:focus, textarea:focus {
+    outline: none;
+}
+h5 {
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.34;
+    text-transform: uppercase;
+    letter-spacing: .02em
+}
+.site-footer-newsletter form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #161618
+}
+
+input#input_newsletter{
+    font-size: 24px;
+    border: 1px solid transparent;
+    padding: 4px 0;
+}

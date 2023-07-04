@@ -1,0 +1,50 @@
+.form {
+    @apply w-full flex flex-wrap pb-4;
+}
+
+.section_title {
+    @apply text-lg font-bold mt-4 text-black p-1 px-2 mb-2 rounded w-full;
+}
+
+.group {
+    @apply h-auto;
+    min-height: 70px;
+}
+
+.input {
+    @apply border-b border-gray-600 font-medium text-black h-11 mb-0;
+    @apply w-full flex-initial mt-0 text-base;
+}
+
+.input:focus,
+.input:focus:not(.input_error),
+.input[type='text']:focus {
+    /* @apply border-blueMain; */
+    outline: none;
+}
+.input_label {
+    @apply text-gray-600;
+    @apply font-medium;
+    @apply mb-0 block;
+}
+.input_error {
+    @apply text-danger-400 border-danger-500;
+}
+textarea[autoresize] {
+    display: block;
+    height: 100px;
+    overflow: auto;
+    resize: none;
+    outline: none;
+}
+/* POPHOVER */
+.popHover {
+    @apply relative;
+}
+.popHover-content {
+    @apply z-10 opacity-0 absolute top-2 left-9 h-6 bg-white px-2 py-1 text-xs rounded shadow-lg w-auto whitespace-nowrap;
+}
+.popHover-content.active {
+    @apply opacity-95 sm:bottom-11 md:left-11;
+    transition: opacity, left 0.2s;
+}
